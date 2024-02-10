@@ -5,7 +5,7 @@
 }
 
 .logo {
-  width: 120px;
+  width: 40%;
   height: 100%;
 }
 
@@ -27,11 +27,33 @@
   padding: 10px;
 }
 .res-card {
-  background-color: rgb(224, 227, 230);
   padding: 2px;
   width: 240px;
-  height: 350px;
   margin: 3px;
+  border-radius: 10px;
+  border: 2px white;
+}
+
+#res-cuisine {
+  text-wrap: wrap;
+}
+.res-card > h3 {
+  font-size: 25px;
+  margin-top: 5px;
+  margin-left: 25px;
+}
+
+.res-img {
+  border-radius: 5px;
+}
+
+.res-card > h4 {
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+  font-style: normal;
+  color: rgb(99, 99, 99);
 }
 
 .res-card:hover {
