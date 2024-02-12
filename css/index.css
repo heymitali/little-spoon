@@ -1,12 +1,11 @@
 .header {
   display: flex;
   justify-content: space-between;
-  border: 1px double black;
+  /* border: 1px double black; */
 }
 
-.logo {
-  width: 40%;
-  height: 100%;
+.header-bg {
+  margin: 10px;
 }
 
 .nav-items {
@@ -75,12 +74,18 @@
   justify-content: space-evenly;
 }
 
-.filter {
-  margin: 10px;
-}
-
 .filter-btn {
   margin: 10px;
+  padding: 10px;
+  border: none;
+  color: aliceblue;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(29, 29, 204, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2);
 }
 
 .shimmer-container {
@@ -102,5 +107,33 @@
   height: auto;
   background-color: rgb(239, 113, 45);
   border-radius: 20px;
+  cursor: pointer;
+}
+
+.filter {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-bar {
+  display: flex;
+}
+
+.search-bar > input {
+  height: 30px;
+  width: 300px;
+  margin-left: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.search-bar > button {
+  height: 30px;
+  width: 80px;
+  margin: 18px 20px;
+  color: white;
+  background-color: rgb(8, 109, 8);
+  border-radius: 15px;
   cursor: pointer;
 }
