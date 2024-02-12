@@ -94,3 +94,13 @@
   margin: 10px;
   background-color: rgb(203, 203, 203);
 }
+
+.log-btn {
+  margin: 10px;
+  color: rgb(255, 255, 255);
+  width: 80px;
+  height: auto;
+  background-color: rgb(239, 113, 45);
+  border-radius: 20px;
+  cursor: pointer;
+}
