@@ -1,3 +1,8 @@
+import User from "./User";
+import UserClass from "./UserClass";
+import { USER_DATA } from "../utils/constants";
+import { USER_CLASS_DATA } from "../utils/constants";
+
 const About = () => {
   return (
     <div className="about-us">
@@ -8,6 +13,15 @@ const About = () => {
         NYC resident and famed chef Tom Colicchio, Central Perk has now come to
         life and is roasting premium coffee for you to enjoy at home.
       </h2>
+      <div className="team">
+        <h2>Our Team</h2>
+        {USER_DATA.map((member) => (
+          <User user={member} key={USER_DATA.indexOf(member)} />
+        ))}
+        {USER_CLASS_DATA.map((member) => (
+          <UserClass user={member} key={USER_CLASS_DATA.indexOf(member)} />
+        ))}
+      </div>
     </div>
   );
 };
