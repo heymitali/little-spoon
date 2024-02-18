@@ -1,7 +1,6 @@
 import User from "./User";
 import UserClass from "./UserClass";
-import { USER_DATA } from "../utils/constants";
-import { USER_CLASS_DATA } from "../utils/constants";
+import { USER_DATA, USER_CLASS_DATA } from "../utils/constants";
 
 const About = () => {
   return (
@@ -15,12 +14,25 @@ const About = () => {
       </h2>
       <div className="team">
         <h2>Our Team</h2>
-        {USER_DATA.map((member) => (
-          <User user={member} key={USER_DATA.indexOf(member)} />
-        ))}
-        {USER_CLASS_DATA.map((member) => (
-          <UserClass user={member} key={USER_CLASS_DATA.indexOf(member)} />
-        ))}
+        {USER_DATA.map((user) => {
+          return (
+            <User
+              name={user.name}
+              location={user.location}
+              contact={user.contact}
+            />
+          );
+        })}
+
+        {USER_CLASS_DATA.map((user2) => {
+          return (
+            <UserClass
+              name={user2.name}
+              location={user2.location}
+              contact={user2.contact}
+            />
+          );
+        })}
       </div>
     </div>
   );

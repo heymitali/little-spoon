@@ -40,7 +40,7 @@ export const USER_CLASS_DATA = [
     // image: "https://assets.shortpedia.com/uploads/2021/04/12/1618230565.webp",
   },
   {
-    name: "Phoebe Buffay Henigan",
+    name: "Phoebe Buffay Hennighan",
     location: "New York",
     contact: 6789012345,
     // image:
