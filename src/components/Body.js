@@ -69,7 +69,7 @@ const Body = () => {
           Top restaurants near you!
         </button>
       </div>
-      <div className="res-container">
+      <div className="p-4 m-4 flex flex-wrap justify-start">
         {filteredList.map((restaurant) => (
           <Link
             key={restaurant.info.id}
