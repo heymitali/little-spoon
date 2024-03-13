@@ -33,7 +33,7 @@ const Body = () => {
   }
   if (!onlineStatus) return <h1>Ops! You seem offline!!</h1>;
   return (
-    <div className="bg-gradient-to-r from-yellow-100 to-lime-200">
+    <div className="bg-gradient-to-r from-yellow-100 to-lime-100">
       <div className="filter">
         <div className="rounded-lg">
           <input
