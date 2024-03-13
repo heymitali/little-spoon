@@ -8,11 +8,11 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="flex justify-between bg-gradient-to-r from-lime-700">
+    <div className="flex justify-between bg-gradient-to-r from-teal-400 to-yellow-200">
       <Link to="/">
         <img
-          className="bg-transparent w-40 m-4 p-2"
-          src="https://w7.pngwing.com/pngs/691/292/png-transparent-food-delivery-computer-icons-food-delivery-online-food-ordering-food-delivery-miscellaneous-angle-food-thumbnail.png"
+          className="w-48 m-4 p-2"
+          src="https://img.freepik.com/free-vector/cute-monkey-eating-banana-with-chopsticks-cartoon-vector-icon-illustration-animal-food-isolated_138676-8890.jpg?w=1380&t=st=1710331821~exp=1710332421~hmac=bd623f7c519972639f76ad6fc3586c5173e59fd2f4a4e144270ec03865238eb1"
         />
       </Link>
       <div className="logo-container"></div>

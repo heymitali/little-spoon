@@ -33,18 +33,19 @@ const Body = () => {
   }
   if (!onlineStatus) return <h1>Ops! You seem offline!!</h1>;
   return (
-    <div className="body">
+    <div className="bg-gradient-to-r from-yellow-100 to-lime-200">
       <div className="filter">
-        <div className="search-bar">
+        <div className="rounded-lg">
           <input
             type="text"
-            className="search-bar"
+            className="p-1 m-8"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
+            className="p-1 m-4 "
             onClick={() => {
               filteredRestaurantList = listOfRestaurants.filter((restaurant) =>
                 restaurant.info.name
@@ -58,7 +59,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="filter-btn"
+          className="p-3 mt-2 ml-6 rounded-lg bg-gradient-to-r from-fuchsia-500 to-cyan-500 text-white"
           onClick={() => {
             filteredRestaurantList = listOfRestaurants.filter(
               (restaurant) => restaurant.info.avgRating > 4
