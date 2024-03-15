@@ -21,9 +21,9 @@ const ItemList = ({ items }) => {
             <div className="flex justify-between p-1 font-bold">
               <span className="text-[19px] ">{item.card.info.name}</span>
               <span>
+                ₹
                 {item.card.info.price / 100 ||
                   item.card.info.defaultPrice / 100}
-                ₹
               </span>
             </div>
             <p className="text-xs">{item.card.info.description}</p>
