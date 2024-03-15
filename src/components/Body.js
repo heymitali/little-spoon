@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { image } from "../utils/constants";
 
 const Body = () => {
   let [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -33,19 +34,20 @@ const Body = () => {
   }
   if (!onlineStatus) return <h1>Ops! You seem offline!!</h1>;
   return (
-    <div className="bg-gradient-to-r from-yellow-100 to-lime-100">
+    <div className="m-2 p-2 ">
       <div className="filter">
-        <div className="rounded-lg">
+        <div className="rounded-lg flex justify-center">
           <input
+            placeholder="Craving Something? Find your favourite place Here!"
             type="text"
-            className="p-1 m-8"
+            className="p-4 mr-3 mb-6 ml-10 mt-6 w-6/12 h-14 border-2 border-gray-400 rounded-lg border-solid "
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
-            className="p-1 m-4 "
+            className="p-1 text-white font-bold  mt-8 mr-2 ml-2  rounded-xl w-20 h-10 border-solid border-2 text-center border-black bg-gradient-to-r from-red-500 to-orange-500 "
             onClick={() => {
               filteredRestaurantList = listOfRestaurants.filter((restaurant) =>
                 restaurant.info.name
@@ -58,6 +60,7 @@ const Body = () => {
             Search
           </button>
         </div>
+
         <button
           className="p-3 mt-2 ml-6 rounded-lg bg-gradient-to-r from-fuchsia-500 to-cyan-500 text-white"
           onClick={() => {
@@ -69,6 +72,9 @@ const Body = () => {
         >
           Top restaurants near you!
         </button>
+        <div className="flex justify-center m-auto p-2 w-2/3 h-1/3 ">
+          <img src={image} className="rounded-2xl h-4/5"></img>
+        </div>
       </div>
       <div className="p-4 m-4 flex flex-wrap justify-start">
         {filteredList.map((restaurant) => (

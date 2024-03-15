@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import ItemList from "./ItemList";
 import { clearCart } from "../utils/cartSlice";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
@@ -8,6 +9,8 @@ const Cart = () => {
   const handleClearCart = () => {
     dispatch(clearCart());
   };
+
+  console.log(cartItems);
 
   return (
     <div className="">
@@ -27,8 +30,19 @@ const Cart = () => {
         <ItemList items={cartItems} />
         {cartItems.length === 0 && (
           <h2 className="text-center p-2 m-2 text-lg">
-            Your cart is empty! Please add some items.
+            "Your cart is feeling a bit lonely! Add some delicious items to it."
+            🛒🍔
           </h2>
+        )}
+
+        {cartItems.length > 0 && (
+          <div className="flex justify-end">
+            <Link to={"/checkout"}>
+              <button className="border-2 border-solid rounded-lg text-white bg-lime-600 m-8 p-4 w-60 h-auto">
+                Checkout & Pay
+              </button>
+            </Link>
+          </div>
         )}
       </div>
     </div>

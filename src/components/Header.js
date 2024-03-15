@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { HEADER_BG } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
@@ -14,12 +13,17 @@ const Header = () => {
   console.log(cartItems);
 
   return (
-    <div className="flex justify-between bg-gradient-to-r from-teal-400 to-yellow-200">
+    <div className="flex justify-between bg-gradient-to-r  shadow-lg shadow-gray-700 from-teal-400 to-yellow-200">
       <Link to="/">
-        <img
-          className="w-40 m-4 p-2"
-          src="https://img.freepik.com/free-vector/cute-monkey-eating-banana-with-chopsticks-cartoon-vector-icon-illustration-animal-food-isolated_138676-8890.jpg?w=1380&t=st=1710331821~exp=1710332421~hmac=bd623f7c519972639f76ad6fc3586c5173e59fd2f4a4e144270ec03865238eb1"
-        />
+        <div className="flex justify-between">
+          <img
+            className="w-40 m-4 p-2 rounded-3xl"
+            src="https://img.freepik.com/free-vector/cute-monkey-eating-banana-with-chopsticks-cartoon-vector-icon-illustration-animal-food-isolated_138676-8890.jpg?w=1380&t=st=1710331821~exp=1710332421~hmac=bd623f7c519972639f76ad6fc3586c5173e59fd2f4a4e144270ec03865238eb1"
+          />
+          <h1 className="m-auto p-4 text-6xl font-bold text-white">
+            Monkey Meals
+          </h1>
+        </div>
       </Link>
 
       <div className="flex justify-center m-2">
