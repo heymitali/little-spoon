@@ -13,6 +13,7 @@ import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import ThankYou from "./components/ThankYou";
+import Confirmation from "./components/Confirmation";
 
 const About = lazy(() => import("./components/About"));
 
@@ -76,6 +77,7 @@ const appRouter = createBrowserRouter([
         path: "/thankYou",
         element: <ThankYou />,
       },
+      { path: "/confirmation", element: <Confirmation /> },
     ],
   },
 ]);

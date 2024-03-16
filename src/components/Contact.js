@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Contact = () => {
   return (
     <div className=" flex justify-between m-4 p-4">
@@ -22,7 +24,7 @@ const Contact = () => {
               ></input>
               <div className="flex justify-center">
                 <button className=" m-4 p-4 w-2/3 rounded-full border-collapse bg-sky-400 text-white">
-                  Send
+                  <Link to={"/confirmation"}>Send</Link>
                 </button>
               </div>
             </div>
