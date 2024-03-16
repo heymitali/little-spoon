@@ -73,7 +73,7 @@ const Body = () => {
           Top restaurants near you!
         </button>
         <div className="flex justify-center m-auto p-2 w-2/3 h-1/3 ">
-          <img src={image} className="rounded-2xl h-4/5"></img>
+          <img src={image} className="rounded-2xl w-max h-4/5"></img>
         </div>
       </div>
       <div className="p-4 m-4 flex flex-wrap justify-start">
