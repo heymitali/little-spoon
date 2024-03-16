@@ -2,38 +2,47 @@ export const IMAGE_BASE_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 export const image = require("../../assets/order.png");
 
-export const USER_DATA = [
+export const EMPLOYEE_DATA = [
   {
-    name: "Rachel Green",
-    location: "New York",
-    contact: 1234567890,
+    name: "Monica Geller",
+    role: "CEO",
+    location: "Manhattan",
+    say: "We're proud to be a part of the food delivery community and we're committed to providing our customers with the best possible service.",
+    img: "https://i.pinimg.com/564x/c7/7f/9c/c77f9c6b45c93515688b554edd10efbf.jpg",
   },
   {
     name: "Chandler Bing",
+    role: "CFO",
     location: "Manhattan",
-    contact: 2345678901,
+    say: "We're grateful for the opportunity to serve our customers and we're always looking for ways to give back to the community.",
+    img: "https://i.pinimg.com/564x/b5/7e/98/b57e98af75e1c8608b367f829d4a2176.jpg",
   },
   {
-    name: "Monica Geller",
-    location: "Manhattan",
-    contact: 3456789012,
+    name: "Rachel Green",
+    role: "Marketing manager",
+    location: "New York",
+    say: "We're passionate about food and we love helping people connect with their favorite restaurants.",
+    img: "https://i.pinimg.com/564x/4b/ca/4a/4bca4aaafbce8ccb81871028f4ed90a9.jpg",
   },
-];
-
-export const USER_CLASS_DATA = [
   {
     name: "Ross Geller",
+    role: "Product manager",
     location: "New York",
-    contact: 4567890123,
+    say: "We're always looking for ways to improve our service and make your experience even better.",
+    img: "https://i.pinimg.com/564x/d4/83/8a/d4838a43fc26933dea145ff9862bb677.jpg",
   },
   {
     name: "Joey Tribbiani",
+    role: "Delivery driver",
     location: "Manhattan",
-    contact: 5678901234,
+    say: "We deliver happiness, one meal at a time.",
+    img: "https://i.pinimg.com/564x/89/40/a6/8940a6c8681f8195e454e13f4bc144b0.jpg",
   },
   {
     name: "Phoebe Buffay Hennighan",
+    role: "Customer service representative",
     location: "New York",
-    contact: 6789012345,
+    say: "Our goal is to make your life easier by bringing you the food you love, right to your door.",
+    img: "https://i.pinimg.com/564x/f4/e0/3d/f4e03dbe1b34c30daffbf35a5b0cc851.jpg",
   },
 ];
