@@ -2,14 +2,12 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
 import { image } from "../utils/constants";
 
 const Body = () => {
   let [listOfRestaurants, setListOfRestaurants] = useState([]);
   let [searchText, setSearchText] = useState("");
   let [filteredList, setFilterdList] = useState([]);
-  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     fetchData();
@@ -27,12 +25,13 @@ const Body = () => {
     setFilterdList(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+
+    console.log("data >>>>> ", filteredList);
   };
 
   if (listOfRestaurants.length === 0) {
     return <Shimmer />;
   }
-  if (!onlineStatus) return <h1>Ops! You seem offline!!</h1>;
   return (
     <div className="m-2 p-2 ">
       <div className="filter">

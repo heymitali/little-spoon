@@ -1,36 +1,44 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
 const Header = () => {
   let [logBtn, setLogBtn] = useState("login");
-  const onlineStatus = useOnlineStatus();
-  const { loggedInUser } = useContext(UserContext);
+  const { loggedInUser, setUsername } = useContext(UserContext);
 
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+
+  const calculateTotalItems = () => {
+    const resNames = Object.keys(cartItems);
+    let total = 0;
+    for (const resName of resNames) {
+      const foodItems = Object.keys(cartItems[resName]);
+
+      for (const foodItem of foodItems) {
+        total += cartItems[resName][foodItem]["qty"];
+      }
+    }
+    return total;
+  };
 
   return (
-    <div className="flex justify-between bg-gradient-to-r  shadow-lg shadow-gray-700 from-teal-400 to-yellow-200">
+    <div className="flex justify-between  shadow-lg shadow-gray-700">
+      <div className="w-max h-max bg-black bg-opacity-50"></div>
       <Link to="/">
-        <div className="flex justify-between">
+        <div className="flex justify-between overflow-hidden">
           <img
-            className="w-40 m-4 p-2 rounded-3xl"
-            src="https://img.freepik.com/free-vector/cute-monkey-eating-banana-with-chopsticks-cartoon-vector-icon-illustration-animal-food-isolated_138676-8890.jpg?w=1380&t=st=1710331821~exp=1710332421~hmac=bd623f7c519972639f76ad6fc3586c5173e59fd2f4a4e144270ec03865238eb1"
+            className="w-40 m-4 p-2 rounded-3xl scale-150 overflow-hidden"
+            src="https://littlespoonshop.myshopify.com/cdn/shop/files/Little_spoon_logo_low_RES_Black_302649e5-7229-4528-9622-d70dbc80c253.jpg?v=1682992278"
           />
           <h1 className="m-auto p-4 text-6xl font-bold text-white">
-            Monkey Meals
+            Little Spoon
           </h1>
         </div>
       </Link>
 
       <div className="flex justify-center m-2">
         <ul className="flex justify-between p-2 m-2">
-          <li className="p-2 m-2">
-            {onlineStatus ? "You are online!!" : "Ops! You seem offline"}
-          </li>
           <li className="p-2 m-2">
             <Link to="/">Home</Link>
           </li>
@@ -41,9 +49,12 @@ const Header = () => {
             <Link to="/contact">Contact Us</Link>
           </li>
           <li className="p-2 m-2">
-            <Link to={"/cart"}>🛒 ({cartItems.length})</Link>
+            <Link to={"/cart"}>🛒 ({calculateTotalItems()})</Link>
           </li>
           <li>
+            {loggedInUser === "User" && (
+              <input placeholder="Username" className=""></input>
+            )}
             <button
               className="p-2 m-2 "
               onClick={() => {

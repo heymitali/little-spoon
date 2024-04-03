@@ -1,6 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/confirmation");
+  };
+
   return (
     <div className=" flex justify-between m-4 p-4">
       <span className="w-1/3">
@@ -23,8 +29,11 @@ const Contact = () => {
                 className=" m-2 p-4 h-64 rounded-3xl border-collapse bg-sky-100"
               ></input>
               <div className="flex justify-center">
-                <button className=" m-4 p-4 w-2/3 rounded-full border-collapse bg-sky-400 text-white">
-                  <Link to={"/confirmation"}>Send</Link>
+                <button
+                  className=" m-4 p-4 w-2/3 rounded-full border-collapse bg-sky-400 text-white"
+                  onClick={handleClick}
+                >
+                  Send
                 </button>
               </div>
             </div>

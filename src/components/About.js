@@ -16,7 +16,7 @@ const About = () => {
           <div className="w-1/2 m-4 p-4">
             <h1 className="text-xl">
               <span className="text-3xl">W</span>elcome to{" "}
-              <span className="text-lime-600 font-bold">Monkey Meals</span> ,
+              <span className="text-lime-600 font-bold">Little Spoon</span> ,
               where we believe that every meal is a celebration of life. Our
               mission is to deliver not just food, but an experience right to
               your doorstep. With a passion for culinary excellence and a

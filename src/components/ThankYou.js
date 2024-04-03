@@ -1,4 +1,10 @@
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "../utils/cartSlice";
+
 const ThankYou = () => {
+  const dispatch = useDispatch();
+  dispatch(clearCart());
+
   return (
     <div>
       <div className="flex justify-center m-4 p-2">

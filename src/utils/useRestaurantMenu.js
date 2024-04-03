@@ -17,24 +17,18 @@ const useRestaurantMenu = (resId) => {
 
     const json = await data.json();
 
-    // const menu =
-    //   json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-    //     ?.card?.itemCards;
-
     const categories =
-      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
         (category) =>
           category?.card?.card?.["@type"] ===
           "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
       );
-    setRestaurantMenu(categories);
 
-    // setRestaurantMenu(menu);
-    setRestaurantInfo(json?.data?.cards[0]?.card?.card.info);
+    setRestaurantMenu(categories);
+    setRestaurantInfo(json?.data?.cards[2]?.card?.card.info);
   };
 
-  const arr = [restaurantMenu, restaurantInfo];
-  return arr;
+  return [restaurantMenu, restaurantInfo];
 };
 
 export default useRestaurantMenu;
