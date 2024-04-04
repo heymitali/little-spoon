@@ -7,7 +7,7 @@ const MenuCategory = ({ data, resInfo }) => {
 
   return (
     <div>
-      <div className="w-6/12 text-l bg-gradient-to-l from-transparent via-gray-100 to-neutral-300 mx-auto my-6 p-4 rounded-lg ">
+      <div className="w-2/3 text-lg mx-auto my-4 pt-2 pb-1 rounded-lg bg-[#E0E0E0]">
         <div
           onClick={handleClick}
           className=" font-bold m-1 p-4 flex justify-between cursor-pointer"
@@ -15,7 +15,6 @@ const MenuCategory = ({ data, resInfo }) => {
           <span className="text-xl">
             {data.title} ({data.itemCards.length})
           </span>
-          <span>⇩</span>
         </div>
 
         {showItems && <ItemList items={data.itemCards} resInfo={resInfo} />}

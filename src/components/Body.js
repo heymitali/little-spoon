@@ -20,8 +20,24 @@ const Body = () => {
       );
 
       const resList = await data.json();
+
+      const set = new Set();
+      const newUniqueRestaurants = [];
+      resList?.data.cards[4].card?.card?.gridElements?.infoWithStyle.restaurants.forEach(
+        (element) => {
+          set.add(element.info.name);
+        }
+      );
+
+      dummyRestaurantsListData.forEach((element) => {
+        if (!set.has(element.info.name)) {
+          newUniqueRestaurants.push(element);
+          set.add(element.info.name);
+        }
+      });
+
       resList.data.cards[4].card?.card?.gridElements?.infoWithStyle.restaurants.push(
-        ...dummyRestaurantsListData
+        ...newUniqueRestaurants
       );
 
       return resList;
