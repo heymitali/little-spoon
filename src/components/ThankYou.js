@@ -7,10 +7,10 @@ const ThankYou = () => {
 
   return (
     <div>
-      <div className="flex justify-center m-4 p-2">
+      <div className="flex justify-center m-4 w-full h-full mt-12 ">
         <img src="https://media.tenor.com/Qwf1ljMGwrcAAAAj/cooking-whisk.gif"></img>
       </div>
-      <div className="flex justify-center m-4 p-2">
+      <div className="flex justify-center mt-12">
         <h1 className="font-semibold text-xl">
           Hold tight!{" "}
           <span className="font-bold text-lime-500	">Your order is placed.</span>{" "}

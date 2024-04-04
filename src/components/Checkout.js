@@ -22,22 +22,31 @@ const Checkout = () => {
   }
 
   return (
-    <div>
-      <div>
-        {allFoodItems.map((item) => (
-          <CheckoutCard item={item} />
-        ))}
+    <div className="flex justify-center">
+      <div className="w-1/2">
+        <span className="text-3xl font-bold flex justify-center mt-6 mb-4">
+          Bill To Pay
+        </span>
+        <hr />
+        <div className="">
+          {allFoodItems.map((item) => (
+            <CheckoutCard item={item} />
+          ))}
 
-        <div className="flex justify-center ">
-          <div className="flex justify-between w-6/12 border-t-2  border-black">
-            <span className="font-extrabold">To Pay</span>
-            <span>₹{totalAmount}</span>
+          <hr />
+
+          <div className="flex justify-center ">
+            <div className="flex justify-between w-full mt-2 text-xl p-4 pl-12 pr-6">
+              <span className="font-bold text-gray-800">Grand Total</span>
+              <span className="font-bold text-gray-800">₹{totalAmount}</span>
+            </div>
           </div>
-        </div>
-        <div className="flex justify-center">
-          <button className="border-2 border-solid rounded-lg font-bold text-white bg-lime-600 m-8 p-4 w-60 h-auto">
-            <Link to={"/thank-you"}>Pay and Place Order</Link>
-          </button>
+
+          <div className="flex justify-center">
+            <button className="rounded-lg font-bold text-white bg-[#00CCCC] m-8 p-4 w-60 h-auto hover:brightness-110 shadow-md hover:shadow-lg hover:shadow-gray-400">
+              <Link to={"/thank-you"}>Pay and Place Order</Link>
+            </button>
+          </div>
         </div>
       </div>
     </div>

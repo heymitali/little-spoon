@@ -11,26 +11,23 @@ const Cart = () => {
   };
 
   return (
-    <div className="">
-      <div className="w-6/12 m-auto">
-        <h1 className="font-bold underline text-center m-8 p-8 font-serif text-6xl">
-          My Cart
-        </h1>
-
+    <div className="mx-18">
+      <div className="w-1/2 m-auto">
+        <h1 className="font-semibold text-center mt-5 mb-2 text-4xl">Cart</h1>
+        <hr className="mt-2 mb-4" />
         {Object.keys(cartItems).length > 0 && (
           <button
-            className=" m-2 p-2 h-auto w-auto bold border-2 border-white rounded-xl bg-black text-white "
+            className="float-right p-3 h-auto w-auto bold border-2 border-white rounded-xl bg-black text-white hover:bg-gray-700"
             onClick={handleClearCart}
           >
             Clear Cart 🗑️
           </button>
         )}
       </div>
-
-      <div className="w-6/12 m-auto">
+      <div className="w-1/2 m-auto mt-14">
         <CartItemList items={cartItems} />
         {Object.keys(cartItems).length === 0 && (
-          <h2 className="text-center p-2 m-2 text-lg">
+          <h2 className="text-center mt-20 text-xl">
             "Your cart is feeling a bit lonely! Add some delicious items to it."
             🛒🍔
           </h2>
@@ -39,7 +36,7 @@ const Cart = () => {
         {Object.keys(cartItems).length > 0 && (
           <div className="flex justify-end">
             <Link to={"/checkout"}>
-              <button className="border-2 border-solid rounded-lg text-white bg-lime-600 m-8 p-4 w-60 h-auto">
+              <button className="border-2 border-solid rounded-lg text-white bg-lime-600 m-8 p-4 w-60 h-auto hover:bg-lime-500 shadow-sm hover:shadow-lg">
                 Checkout & Pay
               </button>
             </Link>

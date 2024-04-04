@@ -35,7 +35,7 @@ const ItemList = ({ items, resInfo }) => {
                 <div className="">
                   {cartItems[resInfo.name] &&
                     cartItems[resInfo.name][item.card.info.name] && (
-                      <div className="w-32 mt-2 rounded-lg shadow-sm font-semibold bg-[#0b0b0bd2] text-white flex justify-around">
+                      <div className="w-36 mt-2 rounded-lg shadow-sm font-semibold bg-[#0b0b0bd2] text-white flex justify-around border-black border-[1px]">
                         <button
                           className="w-full pt-3 pb-3 pl-5 pr-3 hover:bg-[#ffffff] hover:text-black rounded-l-lg"
                           onClick={() => handleRemoveItem(item.card.info)}
@@ -58,7 +58,7 @@ const ItemList = ({ items, resInfo }) => {
                   {(!cartItems[resInfo.name] ||
                     !cartItems[resInfo.name][item.card.info.name]) && (
                     <button
-                      className="mt-2 p-3 border-gray-400 rounded-lg shadow-sm font-semibold bg-[#0b0b0bd2] text-white border-[1px]"
+                      className="w-36 mt-2 p-3 border-gray-400 rounded-lg shadow-sm font-semibold bg-[#0b0b0bd2] text-white border-[1px]"
                       onClick={() => handleAddItem(item.card.info)}
                     >
                       &nbsp;🍽️ Add Item&nbsp;

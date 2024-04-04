@@ -60,7 +60,10 @@ const RestaurantMenu = () => {
             restaurantMenu.map((category) => {
               return (
                 <MenuCategory
-                  key={category?.card?.card?.title}
+                  key={
+                    category?.card?.card?.title +
+                    Math.floor(1000 * Math.random())
+                  }
                   data={category?.card?.card}
                   resInfo={restaurantInfo}
                 />

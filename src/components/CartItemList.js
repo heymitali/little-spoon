@@ -23,64 +23,69 @@ const CartItemList = () => {
   );
 
   return (
-    <div className="border-t-2 border-t-gray-400">
+    <div className="">
       {restaurants.map((resName) => (
         <div>
-          <span>{resName}</span>
-          {Object.keys(cartItems[resName]).map((foodName) => {
-            const foodItem = cartItems[resName][foodName];
-            return (
-              <div
-                className="m-4 p-2 flex justify-between border-b-2 border-gray-500"
-                // key={item.card.info.id}
-              >
-                <div>
-                  <div className="flex justify-between p-1 font-bold">
-                    <span className="text-[19px] ">{foodName}</span>
-                    <span>
-                      ₹
-                      {foodItem.info.price / 100 ||
-                        foodItem.info.defaultPrice / 100}
-                    </span>
-                  </div>
-                  {/* <p className="text-xs">{item.card.info.description}</p> */}
-                </div>
-                <div className="w-40 p-2 m-4 ">
-                  <div className="flex justify-evenly">
+          <div className="m-2 mt-4 p-2 pl-1">
+            <span className="text-2xl">{resName}</span>
+          </div>
+          <div className="rounded-lg border-[3px] border-gray-300">
+            {Object.keys(cartItems[resName]).map((foodName) => {
+              const foodItem = cartItems[resName][foodName];
+              return (
+                <div className="p-4 bg-[#F5F5F5] border-t-[0.5px] border-gray-300">
+                  <div className="flex justify-between" key={foodItem.info.id}>
+                    <div className="flex flex-col w-[100%] p-3">
+                      <span className="text-xl font-bold">
+                        {foodItem.info.name}
+                      </span>
+                      <span className="">
+                        ₹
+                        {foodItem.info.price / 100 ||
+                          foodItem.info.defaultPrice / 100}
+                      </span>
+                      <p className="text-[1rem] mt-4 mb-4 text-gray-700 pr-6">
+                        {foodItem.info.description}
+                      </p>
+                      <div className="">
+                        <div className="w-36 mt-2 rounded-lg shadow-sm font-semibold bg-[#0b0b0bd2] text-white flex justify-around border-black border-[1px]">
+                          <button
+                            className="w-full pt-3 pb-3 pl-5 pr-3 hover:bg-[#ffffff] hover:text-black rounded-l-lg"
+                            onClick={() =>
+                              handleRemoveItem(resName, foodItem.info)
+                            }
+                          >
+                            &nbsp;-&nbsp;
+                          </button>
+                          <span className="w-10 pt-3 pb-3 pl-2 pr-4">
+                            &nbsp;
+                            {cartItems[resName][foodItem.info.name]["qty"]}
+                            &nbsp;
+                          </span>
+                          <button
+                            className="w-full pt-3 pb-3 pl-2 pr-5 hover:bg-[#ffffff] hover:text-black rounded-r-lg"
+                            onClick={() =>
+                              handleAddItem(resName, foodItem.info)
+                            }
+                          >
+                            &nbsp;+&nbsp;
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                     <img
-                      className=" w-40 h-40 rounded-lg shadow-xl shadow-gray-700"
+                      className="w-[24rem] h-[15rem] rounded-lg shadow-sm shadow-gray-700 m-2"
                       src={
                         foodItem.info.imageId
                           ? imgUrl + foodItem.info.imageId
                           : "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
                       }
                     />
-                    <div>
-                      <div className="w-32">
-                        <button
-                          onClick={() =>
-                            handleRemoveItem(resName, foodItem.info)
-                          }
-                        >
-                          &nbsp;-&nbsp;
-                        </button>
-                        <span>
-                          &nbsp;
-                          {foodItem["qty"]}
-                          &nbsp;
-                        </span>
-                        <button
-                          onClick={() => handleAddItem(resName, foodItem.info)}
-                        >
-                          &nbsp;+&nbsp;
-                        </button>
-                      </div>
-                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       ))}
     </div>

@@ -4,13 +4,11 @@ const CheckoutCard = ({ item }) => {
   const perItemPrice = info.price / 100 || info.defaultPrice / 100;
   return (
     <div>
-      <div className="flex justify-center m-auto  ">
-        <div className="flex justify-between w-6/12 m-2 p-3 border-b-2 border-gray-100">
-          <span>
-            {info.name + " (" + qty + " x " + "₹ " + perItemPrice + ")"}
-          </span>
-          <span>₹ {qty * perItemPrice}</span>
-        </div>
+      <div className="w-full flex justify-between text-lg m-2 p-3 pl-10 pr-10">
+        <span className="text-gray-600">
+          {info.name + " (" + qty + " x " + "₹" + perItemPrice + ")"}
+        </span>
+        <span className="text-gray-600">₹ {qty * perItemPrice}</span>
       </div>
     </div>
   );
