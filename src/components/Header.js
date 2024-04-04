@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <div className="h-30 flex justify-around shadow-lg shadow-gray-200 align-middle">
+    <div className="sticky top-0 z-50 h-30 flex justify-around shadow-md shadow-gray-200 align-middle bg-white">
       <Link to="/">
         <div className="flex items-center h-[100%]">
           <img

@@ -18,7 +18,7 @@ const RestaurantMenu = () => {
   return (
     <div className="resMenueContainer">
       <div className="w-[100%] flex justify-center">
-        <div className="w-[60%] flex flex-col justify-center m-8 p-6 border-2 border-black rounded-md">
+        <div className="w-[60%] flex flex-col justify-center m-8 p-6 border-[1.5px] border-gray-600 rounded-md">
           <img
             src={restImage}
             className="h-[15rem] w-full object-cover overflow-hidden z-0 relative rounded-sm"
@@ -29,11 +29,11 @@ const RestaurantMenu = () => {
             </h1>
           </div>
           <div className="mt-3">
-            <span className="font-bold text-2xl pt-2 text-gray-600">
+            <span className="font-semibold text-2xl pt-2 text-gray-600">
               {restaurantInfo.cuisines.join(", ")}
             </span>
             <span className="text-2xl">{" | "}</span>
-            <span className="font-bold text-2xl mb-2 pb-2 text-gray-400">
+            <span className="font-semibold text-2xl mb-2 pb-2 text-gray-400">
               {restaurantInfo.locality + ", " + restaurantInfo.city}
             </span>
           </div>

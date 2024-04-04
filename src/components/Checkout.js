@@ -29,8 +29,8 @@ const Checkout = () => {
         </span>
         <hr />
         <div className="">
-          {allFoodItems.map((item) => (
-            <CheckoutCard item={item} />
+          {allFoodItems.map((item, index) => (
+            <CheckoutCard item={item} key={index} />
           ))}
 
           <hr />

@@ -41,7 +41,7 @@ const About = () => {
         </div>
         <div className="flex flex-wrap justify-around mx-20 p-8 bg-stone-200 rounded-3xl ">
           {EMPLOYEE_DATA.map((employee) => (
-            <EmployeeCard employee={employee} />
+            <EmployeeCard employee={employee} key={employee.id} />
           ))}
         </div>
       </div>
