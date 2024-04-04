@@ -1,3 +1,3 @@
-# Namaste React
+# Little Spoon
 
-Learning React from the best resource on the web.
+Food ordering web app integrated with Swiggy APIs
