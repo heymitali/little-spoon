@@ -10,9 +10,7 @@ const useRestaurantMenu = (resId) => {
 
   const fetchMenu = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.37240&lng=78.43780&restaurantId=" +
-        resId +
-        "&catalog_qa=undefined&submitAction=ENTER"
+      "https://little-spoon-server.azurewebsites.net/api/menu/" + resId
     );
 
     const json = await data.json();
