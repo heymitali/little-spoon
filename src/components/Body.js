@@ -15,42 +15,43 @@ const Body = () => {
 
   const fetchData = async () => {
     const getRestaurantsData = async () => {
-      const data = await fetch(
+      const response = await fetch(
         "https://little-spoon-server.azurewebsites.net/api/restaurants"
       );
 
-      const resList = await data.json();
+      const jsonResponse = await response.json();
+
+      // logic to find restaurants list from the response. reason: swiggy APIs keeps on changing.
+      const cards = jsonResponse?.data?.cards;
+      let resList = [];
+      for (let card of cards) {
+        const list = card.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        if (list && list.length > 0) {
+          resList = list;
+          break;
+        }
+      }
 
       const set = new Set();
       const newUniqueRestaurants = [];
-      resList?.data.cards[4].card?.card?.gridElements?.infoWithStyle.restaurants.forEach(
-        (element) => {
-          set.add(element.info.name);
-        }
-      );
+      resList.forEach((res) => {
+        set.add(res.info.name);
+      });
 
-      dummyRestaurantsListData.forEach((element) => {
-        if (!set.has(element.info.name)) {
-          newUniqueRestaurants.push(element);
-          set.add(element.info.name);
+      dummyRestaurantsListData.forEach((res) => {
+        if (!set.has(res.info.name)) {
+          newUniqueRestaurants.push(res);
+          set.add(res.info.name);
         }
       });
 
-      resList.data.cards[4].card?.card?.gridElements?.infoWithStyle.restaurants.push(
-        ...newUniqueRestaurants
-      );
-
+      resList.push(...newUniqueRestaurants);
       return resList;
     };
 
-    const json = await getRestaurantsData();
-    setListOfRestaurants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-
-    setFilterdList(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    const resList = await getRestaurantsData();
+    setListOfRestaurants(resList);
+    setFilterdList(resList);
   };
 
   if (listOfRestaurants && listOfRestaurants.length === 0) {
@@ -71,10 +72,11 @@ const Body = () => {
         <button
           className="p-4 text-white font-bold mt-6 rounded-[8px] w-32 h-14 border-solid border-1 border-gray-700 text-center text-md bg-[#00CCCC] hover:bg-[#00E0E0]"
           onClick={() => {
-            filteredRestaurantList = listOfRestaurants.filter((restaurant) =>
-              restaurant.info.name
-                .toLowerCase()
-                .includes(searchText.toLowerCase())
+            const filteredRestaurantList = listOfRestaurants.filter(
+              (restaurant) =>
+                restaurant.info.name
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase())
             );
             setFilterdList(filteredRestaurantList);
           }}
@@ -89,7 +91,7 @@ const Body = () => {
         <button
           className="p-3 rounded-lg bg-gradient-to-r from-fuchsia-500 to-cyan-500 text-white hover:brightness-125"
           onClick={() => {
-            filteredRestaurantList = listOfRestaurants.filter(
+            const filteredRestaurantList = listOfRestaurants.filter(
               (restaurant) => restaurant.info.avgRating > 4
             );
             setFilterdList(filteredRestaurantList);
@@ -100,14 +102,15 @@ const Body = () => {
       </div>
       <div className="flex justify-around">
         <div className="flex flex-wrap w-[78rem]">
-          {filteredList.map((restaurant, index) => (
-            <Link
-              key={restaurant.info.id + index}
-              to={"/restaurants/" + restaurant.info.id}
-            >
-              <RestaurantCard resData={restaurant} />
-            </Link>
-          ))}
+          {filteredList &&
+            filteredList.map((restaurant, index) => (
+              <Link
+                key={restaurant.info.id + index}
+                to={"/restaurants/" + restaurant.info.id}
+              >
+                <RestaurantCard resData={restaurant} />
+              </Link>
+            ))}
         </div>
       </div>
     </div>
