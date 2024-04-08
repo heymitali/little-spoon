@@ -23,41 +23,44 @@ const Header = () => {
   };
 
   return (
-    <div className="sticky top-0 z-50 h-30 flex justify-around shadow-md shadow-gray-200 align-middle bg-white">
+    <div className="sticky top-0 z-50 lg:h-30 md:h-20 sm:h-30 sm:p-4 md:p-0 lg:p-0 flex justify-around shadow-md shadow-gray-200 align-middle bg-white">
       <Link to="/">
         <div className="flex items-center h-[100%]">
           <img
-            className="h-16 rounded-3xl"
+            className="lg:h-[4.5rem] md:h-14 sm:h-12"
             src="https://littlespoonshop.myshopify.com/cdn/shop/files/Little_spoon_logo_low_RES_Black_302649e5-7229-4528-9622-d70dbc80c253.jpg?v=1682992278"
           />
         </div>
       </Link>
 
-      <div className="flex justify-center items-center m-2">
-        <ul className="flex justify-between p-2 m-2">
+      <div className="flex justify-center items-center md:m-2">
+        <ul className="flex justify-between md:p-2 md:m-2">
           <Link to="/">
-            <li className="p-1 m-2 text-lg font-semibold hover:text-[#00CCCC]">
+            <li className="md:p-1 md:m-2 sm:p-1 sm:mr-1 lg:text-lg sm:text-sm font-semibold hover:text-[#00CCCC]">
               Home
             </li>
           </Link>
           <Link to="/about">
-            <li className="p-1 m-2 text-lg font-semibold hover:text-[#00CCCC]">
+            <li className="md:p-1 md:m-2 sm:p-1 sm:mx-1 lg:text-lg sm:text-sm font-semibold hover:text-[#00CCCC]">
               About Us
             </li>
           </Link>
           <Link to="/contact">
-            <li className="p-1 m-2 text-lg font-semibold hover:text-[#00CCCC]">
+            <li className="md:p-1 md:m-2 sm:p-1 sm:mx-1 lg:text-lg sm:text-sm font-semibold hover:text-[#00CCCC]">
               Contact Us
             </li>
           </Link>
           <Link to={"/cart"}>
-            <li className="p-1 m-2 text-lg font-semibold hover:text-[#00CCCC]">
+            <li className="md:p-1 md:m-2 sm:p-1 sm:mx-1 lg:text-lg sm:text-sm font-semibold hover:text-[#00CCCC]">
               🛒 Cart ({calculateTotalItems()})
             </li>
           </Link>
 
-          <li className="p-1 m-2 text-lg font-semibold">
-            <img src={USER_IMAGE} className="h-5 float-left mt-1 mr-2" />
+          <li className="md:p-1 md:m-2 sm:p-1 sm:ml-1 lg:text-lg sm:text-sm font-semibold">
+            <img
+              src={USER_IMAGE}
+              className="float-left lg:h-5 lg:mt-1 lg:mr-2 md:h-4 md:mt-[2px] md:mr-1 sm:h-4 sm:mt-[2px] sm:mr-1"
+            />
             <span className="">{loggedInUser}</span>
           </li>
         </ul>

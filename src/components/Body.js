@@ -58,19 +58,19 @@ const Body = () => {
     return <Shimmer />;
   }
   return (
-    <div className="ml-16 mr-16 mb-10">
-      <div className="rounded-lg flex justify-center mt-4">
+    <div className="lg:mx-5  lg:w-auto md:mx-10 sm:mx-12">
+      <div className="flex justify-center md:mt-6 sm:mt-8">
         <input
           placeholder="Craving Something? Find your favourite place Here!"
           type="text"
-          className="p-4 mr-3 mb-6 ml-10 mt-6 w-1/2 h-14 peer bg-transparent text-blue-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-300 border-2 border-gray-600 focus:border-2 text-md px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
+          className="lg:p-4 lg:mr-3 lg:mb-6 lg:ml-10 lg:mt-6 md:mr-2 sm:p-3 sm:mb-4 sm:mr-3 lg:h-14 lg:peer md:bg-transparent md:text-blue-gray-700 md:font-sans lg:font-normal md:font-light  sm:outline-0 md:border-[2px] md:border-gray-300 md:focus:border-[2px] sm:focus:border-[2px] lg:focus:border-[2px] lg:text-lg md:text-[13px] md:px-2 lg:px-3 md:py-2.5 lg:py-2.5 md:rounded-[7px] md:border-blue-gray-200 md:focus:border-gray-500 sm:w-3/4 md:w-1/2 sm:border-gray-300 sm:border-[2px] sm:rounded-[7px] sm:text-sm sm:focus:border-gray-500 sm:h-10 md:h-10"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
         />
         <button
-          className="p-4 text-white font-bold mt-6 rounded-[8px] w-32 h-14 border-solid border-1 border-gray-700 text-center text-md bg-[#00CCCC] hover:bg-[#00E0E0]"
+          className="lg:p-4 md:p-2 md:px-4 text-white lg:font-bold md:font-semibold lg:mt-6 rounded-[6px] lg:w-32 lg:h-14 text-center lg:text-[18px] md:text-sm bg-[#00CCCC] hover:bg-[#00E0E0] sm:h-10 sm:p-2 sm:px-4 md:h-10 sm:text-sm"
           onClick={() => {
             const filteredRestaurantList = listOfRestaurants.filter(
               (restaurant) =>
@@ -84,33 +84,38 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="flex justify-between ml-[9rem] mr-[9rem] mt-10 mb-5">
-        <span className="text-2xl font-bold font-sans pt-2">
-          Restaurants with online food delivery near you
-        </span>
-        <button
-          className="p-3 rounded-lg bg-gradient-to-r from-fuchsia-500 to-cyan-500 text-white hover:brightness-125"
-          onClick={() => {
-            const filteredRestaurantList = listOfRestaurants.filter(
-              (restaurant) => restaurant.info.avgRating > 4
-            );
-            setFilterdList(filteredRestaurantList);
-          }}
-        >
-          Top restaurants near you!
-        </button>
+      <div className="lg:mx-24 md:mx-20 sm:mx-2">
+        <div className="flex justify-between lg:mt-10 lg:mb-8 md:mt-7 md:mb-5 sm:mt-2 sm:mb-6">
+          <span className="lg:text-2xl md:text-lg sm:text-sm md:font-bold sm:font-bold font-sans sm:pt-2">
+            Restaurants with online food delivery near you
+          </span>
+          <button
+            className="lg:p-3 md:p-2 sm:p-2 rounded-lg bg-gradient-to-r from-fuchsia-500 to-cyan-500 text-white hover:brightness-125 md:text-xs lg:text-lg sm:text-xs"
+            onClick={() => {
+              const filteredRestaurantList = listOfRestaurants.filter(
+                (restaurant) => restaurant.info.avgRating > 4
+              );
+              setFilterdList(filteredRestaurantList);
+            }}
+          >
+            Top restaurants near you!
+          </button>
+        </div>
       </div>
-      <div className="flex justify-around">
-        <div className="flex flex-wrap w-[78rem]">
-          {filteredList &&
-            filteredList.map((restaurant, index) => (
-              <Link
-                key={restaurant.info.id + index}
-                to={"/restaurants/" + restaurant.info.id}
-              >
-                <RestaurantCard resData={restaurant} />
-              </Link>
-            ))}
+
+      <div className="lg:mx-16 md:mx-8 sm:mx-2 flex justify-center mb-6">
+        <div className="flex justify-around">
+          <div className="flex flex-wrap justify-evenly">
+            {filteredList &&
+              filteredList.map((restaurant, index) => (
+                <Link
+                  key={restaurant.info.id + index}
+                  to={"/restaurants/" + restaurant.info.id}
+                >
+                  <RestaurantCard resData={restaurant} />
+                </Link>
+              ))}
+          </div>
         </div>
       </div>
     </div>
