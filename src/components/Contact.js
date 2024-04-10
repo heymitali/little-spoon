@@ -1,9 +1,35 @@
 import { useNavigate } from "react-router-dom";
+import mailgun from "mailgun-js";
+import { useState } from "react";
 
 const Contact = () => {
+  const [values, setValues] = useState({});
   const navigate = useNavigate();
 
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const handleClick = () => {
+    const mg = mailgun({
+      apiKey: process.env.REACT_APP_MAILGUN_API_KEY,
+      domain: process.env.REACT_APP_MAILGUN_DOMAIN,
+    });
+
+    const data = {
+      from: values.email,
+      to: process.env.REACT_APP_TARGET_MAIL,
+      subject: `LittleSpoon - ${values.name} Contacted You`,
+      text: values.message,
+    };
+
+    mg.messages().send(data, function (error, body) {
+      console.log(body);
+    });
+
     navigate("/confirmation");
   };
 
@@ -19,14 +45,20 @@ const Contact = () => {
               <div className="grid w-[100%]">
                 <input
                   placeholder="Name"
+                  name="name"
+                  onChange={handleChange}
                   className="m-2 p-3 sm:p-4 rounded-xl border-collapse bg-blue-100 w-[16rem] xl:w-[32rem]"
                 ></input>
                 <input
                   placeholder="Email"
+                  name="email"
+                  onChange={handleChange}
                   className=" m-2 p-3 sm:p-4 rounded-xl border-collapse bg-blue-100"
                 ></input>
                 <textarea
                   placeholder="Message"
+                  name="message"
+                  onChange={handleChange}
                   className=" m-2 p-3 sm:p-4 h-48 rounded-xl border-collapse bg-blue-100"
                 ></textarea>
                 <div className="flex justify-center">
