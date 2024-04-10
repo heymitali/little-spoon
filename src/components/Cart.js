@@ -11,20 +11,20 @@ const Cart = () => {
   };
 
   return (
-    <div className="mx-18">
-      <div className="w-1/2 m-auto">
+    <div className="mx-18 m-4 sm:m-auto">
+      <div className="w-full sm:w-2/3 2xl:w-1/2 m-auto">
         <h1 className="font-semibold text-center mt-5 mb-2 text-4xl">Cart</h1>
         <hr className="mt-2 mb-4" />
         {Object.keys(cartItems).length > 0 && (
           <button
-            className="float-right p-3 h-auto w-auto bold border-2 border-white rounded-xl bg-black text-white hover:bg-gray-700"
+            className="float-right p-3 h-auto w-auto bold border-2 border-white rounded-xl bg-black text-white hover:bg-gray-700 text-xs sm:text-sm md:text-md lg:text-lg"
             onClick={handleClearCart}
           >
             Clear Cart 🗑️
           </button>
         )}
       </div>
-      <div className="w-1/2 m-auto mt-14">
+      <div className="w-full sm:w-2/3 2xl:w-1/2 m-auto mt-14">
         <CartItemList items={cartItems} />
         {Object.keys(cartItems).length === 0 && (
           <h2 className="text-center mt-20 text-xl">
@@ -34,7 +34,7 @@ const Cart = () => {
         )}
 
         {Object.keys(cartItems).length > 0 && (
-          <div className="flex justify-end">
+          <div className="flex justify-center">
             <Link to={"/checkout"}>
               <button className="border-2 border-solid rounded-lg text-white bg-lime-600 m-8 p-4 w-60 h-auto hover:bg-lime-500 shadow-sm hover:shadow-lg">
                 Checkout & Pay

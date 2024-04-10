@@ -7,12 +7,12 @@ const MenuCategory = ({ data, resInfo }) => {
 
   return (
     <div>
-      <div className="w-2/3 text-lg mx-auto my-4 pt-2 pb-1 rounded-lg bg-[#E0E0E0]">
+      <div className="w-100% md:w-[100%] lg:w-2/3 2xl:w-[62%] text-lg mx-auto my-4 pt-2 pb-1 rounded-lg bg-[#E0E0E0]">
         <div
           onClick={handleClick}
-          className=" font-bold m-1 p-4 flex justify-between cursor-pointer"
+          className=" font-bold m-1 sm:p-2 lg:p-3 2xl:p-4 p-1 flex justify-between cursor-pointer"
         >
-          <span className="text-xl">
+          <span className="md:text-lg lg:text-lg 2xl:text-xl text-sm">
             {data.title} ({data.itemCards.length})
           </span>
         </div>

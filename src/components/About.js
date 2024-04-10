@@ -3,22 +3,25 @@ import { EMPLOYEE_DATA } from "../utils/constants";
 
 const About = () => {
   return (
-    <div className="grid mb-16">
-      <div className="flex justify-around mt-16 mb-10 h-auto">
-        <h1 className="text-5xl">About Us</h1>
+    <div className="grid mb-10">
+      <div className="flex justify-around sm:mt-16 sm:mb-10 mt-8 mb-5 lg:mx-40 md:mx-10 sm:mx-5 mx-3 ">
+        <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-2xl font-semibold">
+          About Us
+        </h1>
       </div>
-      <div className="mx-20 mb-8">
-        <div className="flex justify-between">
-          <div className="w-2/5 h-auto m-2 rounded-lg ">
+      <div className="mb-8 lg:mx-40 md:mx-10 sm:mx-5 mx-3">
+        <div className="sm:flex sm:justify-evenly">
+          <div className=" m-2 rounded-lg lg:w-[50rem] md:h-auto sm:h-[30rem]  md:w-[20rem] sm:w-[15rem]  h-[20rem] ">
             <img
               src="https://www.littlespoon.com/home-page-assets/imgs/How-it-Works.gif"
-              className="object-cover overflow-hidden h-full w-full rounded-lg border-[1px] border-black"
+              className="object-cover overflow-hidden h-full w-full rounded-lg border-[1px] border-black flex justify-center"
             />
           </div>
 
-          <div className="w-1/2 m-4 p-4">
-            <h1 className="text-xl">
-              <span className="text-3xl">W</span>elcome to{" "}
+          <div className="sm:w-1/2 w-auto p-4">
+            <h1 className="text-[0.8rem] sm:text-[1rem] md:text-lg lg:text-2xl">
+              <span className="md:text-3xl sm:text-2xl text-xl">W</span>
+              elcome to{" "}
               <span className="text-lime-600 font-bold">Little Spoon</span> ,
               where we believe that every meal is a celebration of life. Our
               mission is to deliver not just food, but an experience right to
@@ -35,14 +38,18 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div>
-        <div className=" flex justify-center mt-8 mb-4">
-          <h1 className="text-5xl mb-6">Our Team</h1>
+      <div className="lg:mx-40">
+        <div className="flex justify-center sm:mt-8 sm:mb-8">
+          <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-2xl font-semibold mb-6">
+            Our Team
+          </h1>
         </div>
-        <div className="flex flex-wrap justify-around mx-20 p-8 bg-stone-200 rounded-3xl ">
-          {EMPLOYEE_DATA.map((employee) => (
-            <EmployeeCard employee={employee} key={employee.id} />
-          ))}
+        <div className="flex justify-around lg:mx-40 md:mx-20 sm:mx-5 mx-4 sm:p-8 p-2 bg-stone-200 rounded-3xl ">
+          <div className="flex justify-center flex-wrap">
+            {EMPLOYEE_DATA.map((employee) => (
+              <EmployeeCard employee={employee} key={employee.id} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
