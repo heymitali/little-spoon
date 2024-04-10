@@ -15,10 +15,12 @@ const RestaurantMenu = () => {
     return <Shimmer />;
   }
 
+  // for debugging responsive design: bg-red-500 sm:bg-yellow-400 md:bg-purple-400 lg:bg-green-500 xl:bg-pink-400 2xl:bg-blue-500
+
   return (
     <div className="resMenueContainer">
       <div className="w-[100%] flex justify-center">
-        <div className="w-[90%] md:w-[88%] lg:w-[60%] flex flex-col justify-center lg:m-8 lg:p-6 md:m-6 md:p-6 sm:m-5 sm:p-5 xl:m-10 xl:p-6 2xl:m-14 2xl:p-8 m-4 p-4 border-[1.5px] border-gray-600 rounded-md bg-red-500 sm:bg-yellow-400 md:bg-purple-400 lg:bg-green-500 xl:bg-pink-400 2xl:bg-blue-500">
+        <div className="w-[90%] md:w-[88%] lg:w-[60%] flex flex-col justify-center lg:m-8 lg:p-6 md:m-6 md:p-6 sm:m-5 sm:p-5 xl:m-10 xl:p-6 2xl:m-14 2xl:p-8 m-4 p-4 border-[1.5px] border-gray-600 rounded-md">
           <img
             src={restImage}
             className="h-[8rem] sm:h-[15rem] md:h-[15rem] xl:h-[16rem] 2xl:h-[20rem] w-full object-cover overflow-hidden z-0 relative rounded-sm"
